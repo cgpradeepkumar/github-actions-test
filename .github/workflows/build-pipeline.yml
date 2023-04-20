@@ -40,14 +40,12 @@ jobs:
       - name: Push random file
         run: |
           pwd
-          ls -lrt
+          ls -a
           git init
           git clone https://${GITHUB_ACTOR}:${{ secrets.GITHUB_TOKEN }}@github.com/${GITHUB_REPOSITORY}.git
           git config --global user.email "my-bot@bot.com"
           git config --global user.name "my-bot"
-          ls -lrt
-          cd ${GITHUB_REPOSITORY}
-          ls -lrt
+          ls -a
   create_issue:
     runs-on: ubuntu-latest
     permissions:
