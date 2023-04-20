@@ -41,11 +41,15 @@ jobs:
         run: |
           pwd
           ls -a
-          git init
           git clone https://${GITHUB_ACTOR}:${{ secrets.GITHUB_TOKEN }}@github.com/${GITHUB_REPOSITORY}.git
           git config --global user.email "my-bot@bot.com"
           git config --global user.name "my-bot"
           ls -a
+          cd github-actions-test
+          echo $RANDOM >> random.txt
+          git add -A
+          git commit -m "adding random file"
+          git push
   create_issue:
     runs-on: ubuntu-latest
     permissions:
