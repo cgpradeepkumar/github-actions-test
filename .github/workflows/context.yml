@@ -18,4 +18,13 @@ jobs:
               env:
                 STEP_CONTEXT: ${{ toJson(steps) }}
               run: echo "$STEP_CONTEXT"
+    functions:
+        runs-on: ubuntu-latest
+        steps:
+            - name: dump
+              run: | 
+                echo ${{ contains('hello', 'll') }}
+                echo ${{ startsWith('hello', 'he') }}
+                echo ${{ endsWith('hello', 'lo') }}
+                echo ${{ format('Hello {0} {1} {2}', 'World', '!', '!') }}
 
